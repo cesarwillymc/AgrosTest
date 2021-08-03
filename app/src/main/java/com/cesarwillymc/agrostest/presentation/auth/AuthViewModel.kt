@@ -10,11 +10,11 @@ import kotlinx.coroutines.launch
 
 class AuthViewModel(private val repo: AuthRepo) : ViewModel() {
 
-    private val _stateUser = MutableLiveData<AuthViewState>()
+    private val _stateUser = MutableLiveData<AuthViewState>(AuthViewState.UserSucces)
     val stateUser: LiveData<AuthViewState> get() = _stateUser
 
 
-    private lateinit var _dataUser: String
+    private var _dataUser = "admin"
     private val dataUser get() = _dataUser
     fun updateTextUser(User: CharSequence) {
         if (User.isNotEmpty()) {
@@ -30,10 +30,10 @@ class AuthViewModel(private val repo: AuthRepo) : ViewModel() {
     }
 
 
-    private val _statePass = MutableLiveData<AuthViewState>()
+    private val _statePass = MutableLiveData<AuthViewState>(AuthViewState.PassSucces)
     val statePass: LiveData<AuthViewState> get() = _statePass
 
-    private lateinit var _dataPass: String
+    private var _dataPass= "123"
     private val dataPass get() = _dataPass
     fun updateTextPassUser(Pass: CharSequence) {
         if (Pass.isNotEmpty()) {

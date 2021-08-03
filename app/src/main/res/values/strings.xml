@@ -20,6 +20,10 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name="home_hint_edit">URL image</string>
+    <string name="home_text_button">Cargar</string>
+    <string name="auth_user">admin</string>
+    <string name="auth_pass">123</string>
 
 
 </resources>
