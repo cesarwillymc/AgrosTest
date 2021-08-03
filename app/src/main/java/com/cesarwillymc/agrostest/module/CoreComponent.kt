@@ -1,6 +1,8 @@
 package com.cesarwillymc.agrostest.module
 
 import android.content.Context
+import com.cesarwillymc.agrostest.data.repo.AuthRepo
+import com.cesarwillymc.agrostest.data.utils.RequestUser
 import com.cesarwillymc.agrostest.module.module.ContextModule
 import com.cesarwillymc.agrostest.module.module.DatabaseModule
 import com.cesarwillymc.agrostest.module.module.NetworkModule
@@ -19,4 +21,7 @@ import javax.inject.Singleton
 )
 interface CoreComponent {
     fun context(): Context
+
+    fun authRepository(): AuthRepo
+    fun apiRequestUser(): RequestUser
 }
