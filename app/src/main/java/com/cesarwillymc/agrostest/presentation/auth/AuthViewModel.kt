@@ -15,7 +15,7 @@ class AuthViewModel(private val repo: AuthRepo) : ViewModel() {
 
 
     private lateinit var _dataUser: String
-    val dataUser get() = _dataUser
+    private val dataUser get() = _dataUser
     fun updateTextUser(User: CharSequence) {
         if (User.isNotEmpty()) {
             if (User.length > 3) {
@@ -34,7 +34,7 @@ class AuthViewModel(private val repo: AuthRepo) : ViewModel() {
     val statePass: LiveData<AuthViewState> get() = _statePass
 
     private lateinit var _dataPass: String
-    val dataPass get() = _dataPass
+    private val dataPass get() = _dataPass
     fun updateTextPassUser(Pass: CharSequence) {
         if (Pass.isNotEmpty()) {
             if (Pass.length > 2) {
