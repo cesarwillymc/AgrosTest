@@ -25,5 +25,7 @@
     <string name="auth_user">admin</string>
     <string name="auth_pass">123</string>
 
-
+    <!-- Fragment home -->
+    <string name="home_string_error_url">La url no es valida</string>
+    <string name="home_string_empty_uurl">Debes introducir una url</string>
 </resources>

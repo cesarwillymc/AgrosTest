@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.cesarwillymc.agrostest.presentation.main.ui.home.HomeViewModel" />
@@ -16,7 +17,7 @@
 
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/edt_url_img"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -25,18 +26,45 @@
             android:ems="10"
             android:hint="@string/home_hint_edit"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toStartOf="@+id/button"
+            android:onTextChanged="@{(word,b,c,d)->viewModel.updateTextURL(word)}"
+            app:errorText="@{viewModel.stateURL.URLEmpty ?@string/home_string_empty_uurl:viewModel.stateURL.URLError?@string/home_string_error_url:@string/login_vacio}"
+            app:layout_constraintEnd_toStartOf="@+id/btn_load_img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_load_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:enabled="@{viewModel.stateURL.URLSucces}"
+            android:onClick="@{()->viewModel.onClick.invoke(viewModel.dataURL)}"
             android:text="@string/home_text_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/rv_images"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_url_img"
+            tools:src="@tools:sample/avatars" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_images"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
