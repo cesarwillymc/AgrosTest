@@ -7,7 +7,7 @@ import com.cesarwillymc.agrostest.core.model.Image
 
 @Database(entities = [Image::class],
     exportSchema = false,
-    version = 1,)
+    version = 2,)
 
 abstract class ImagesDB : RoomDatabase() {
 

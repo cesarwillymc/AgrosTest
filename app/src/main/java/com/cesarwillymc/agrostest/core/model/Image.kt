@@ -6,5 +6,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "imagedao")
 data class Image(
     @PrimaryKey(autoGenerate = false)
-    val id: String
+    val id: String,
+    val date:Long
 )

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cesarwillymc.agrostest.core.model.Image
 import com.cesarwillymc.agrostest.data.repo.ImageRepo
+import java.util.*
 
 class HomeViewModel(private val imageRepo: ImageRepo) : ViewModel() {
 
@@ -34,7 +35,11 @@ class HomeViewModel(private val imageRepo: ImageRepo) : ViewModel() {
     val listImage= imageRepo.getImageDB()
 
     fun inserImage(url:String){
-        imageRepo.insertImageDB(Image(url))
+        imageRepo.insertImageDB(Image(url,Date().time))
+    }
+
+    fun deleteImage(url:Image){
+        imageRepo.deleteImageDB(url)
     }
 
 }

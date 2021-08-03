@@ -60,6 +60,9 @@ dependencies {
 
     //Recycler View
     implementation "androidx.recyclerview:recyclerview:1.2.1"
+    //Swipe Decorator
+    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
     //Lifecycle
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"

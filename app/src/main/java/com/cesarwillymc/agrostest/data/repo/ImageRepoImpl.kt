@@ -14,4 +14,8 @@ class ImageRepoImpl(private val imageDao: ImagesDao) : ImageRepo {
         imageDao.insertImage(image)
     }
 
+    override fun deleteImageDB(image: Image) {
+        imageDao.deleteImage(image.id)
+    }
+
 }
