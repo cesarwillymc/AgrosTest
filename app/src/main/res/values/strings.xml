@@ -9,12 +9,17 @@
     <string name="text_pass">Contraseña:</string>
     <string name="text_forgot">Olvide mi contraseña.</string>
     <!-- Activity Auth -->
-    <string name="login_vacio"/>
+    <string name="login_vacio" />
     <string name="login_string_error_user">El usuario es incorrecto</string>
     <string name="login_string_empty_user">Debes introducir un usuario</string>
 
     <string name="login_string_error_pass">Contraseña incorrecta</string>
     <string name="login_string_empty_pass">Introduce una contraseña</string>
+
+
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
 
 
 </resources>
