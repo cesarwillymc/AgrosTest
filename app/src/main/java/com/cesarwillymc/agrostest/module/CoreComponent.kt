@@ -1,6 +1,7 @@
 package com.cesarwillymc.agrostest.module
 
 import android.content.Context
+import com.cesarwillymc.agrostest.core.db.dao.ImagesDao
 import com.cesarwillymc.agrostest.data.repo.AuthRepo
 import com.cesarwillymc.agrostest.data.utils.RequestUser
 import com.cesarwillymc.agrostest.module.module.ContextModule
@@ -24,4 +25,7 @@ interface CoreComponent {
 
     fun authRepository(): AuthRepo
     fun apiRequestUser(): RequestUser
+
+    fun imageDao(): ImagesDao
+
 }
