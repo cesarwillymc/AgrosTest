@@ -7,7 +7,7 @@ import kotlinx.coroutines.delay
 class AuthRepoImpl(private val request: RequestUser):AuthRepo {
 
     override suspend fun signIn(user: String, password: String): Usuario {
-        delay(2000L)
+        delay(1000L)
         return request.requestServer(user, password)
     }
 

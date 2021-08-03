@@ -4,6 +4,7 @@ import androidx.annotation.VisibleForTesting
 import com.cesarwillymc.agrostest.module.scope.FeatureScope
 import com.cesarwillymc.agrostest.presentation.main.ui.home.HomeFragment
 import com.cesarwillymc.agrostest.common.viewModel
+import com.cesarwillymc.agrostest.data.repo.ImageRepo
 import com.cesarwillymc.agrostest.presentation.main.ui.home.HomeViewModel
 import dagger.Module
 import dagger.Provides
@@ -17,7 +18,8 @@ class HomeModule(
     @FeatureScope
     @Provides
     fun setupFragmentWithViewModel(
+        imageRepo:ImageRepo
     ) = fragment.viewModel {
-        HomeViewModel()
+        HomeViewModel(imageRepo)
     }
 }
