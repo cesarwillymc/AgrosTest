@@ -2,13 +2,31 @@ package com.cesarwillymc.agrostest.presentation.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.databinding.DataBindingUtil
 import com.cesarwillymc.agrostest.R
-import com.cesarwillymc.agrostest.common.viewModel
+import com.cesarwillymc.agrostest.app.MyApp
+import com.cesarwillymc.agrostest.databinding.ActivityAuthBinding
+import com.cesarwillymc.agrostest.presentation.auth.di.DaggerLoginComponent
+import com.cesarwillymc.agrostest.presentation.auth.di.LoginModule
+import javax.inject.Inject
 
 class AuthActivity : AppCompatActivity() {
+    @Inject
+    lateinit var viewModel: AuthViewModel
+    private lateinit var binding:ActivityAuthBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
+        onInitDependencyInjection()
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
+        onInitDataBinding()
+    }
+
+    private fun onInitDependencyInjection() {
+        DaggerLoginComponent.builder().coreComponent(MyApp.coreComponent(this))
+            .loginModule(LoginModule(this)).build().inject(this)
+    }
+
+    private fun onInitDataBinding() {
+        binding.viewModel = viewModel
     }
 }
