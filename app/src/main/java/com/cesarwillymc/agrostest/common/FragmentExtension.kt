@@ -1,5 +1,7 @@
 package com.cesarwillymc.agrostest.common
 
+import android.app.Activity
+import android.util.DisplayMetrics
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
@@ -33,4 +35,15 @@ fun <T> LifecycleOwner.observe(liveData: LiveData<T>, observer: (T) -> Unit) {
             it?.let { t -> observer(t) }
         }
     )
+}
+fun getScreenHeight(activity: Activity): Int {
+    val metrics = DisplayMetrics()
+    activity.windowManager.defaultDisplay.getMetrics(metrics)
+    return metrics.heightPixels
+}
+
+fun getScreenWidth(activity: Activity): Int {
+    val metrics = DisplayMetrics()
+    activity.windowManager.defaultDisplay.getMetrics(metrics)
+    return metrics.widthPixels
 }

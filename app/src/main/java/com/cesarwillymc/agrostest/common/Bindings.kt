@@ -40,7 +40,7 @@ fun CardView.setEnabledView(enabled: Boolean) {
 
 @BindingAdapter("imageUrl", requireAll = false)
 fun ImageView.imageUrl(url: String?) {
-    Glide.with(this).load(url).into(this)
+    Glide.with(this).load(url).placeholder(R.drawable.loading).error(R.drawable.nofound).into(this)
 }
 
 
