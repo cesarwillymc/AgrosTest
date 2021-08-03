@@ -3,8 +3,10 @@ package com.cesarwillymc.agrostest.presentation.main.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.cesarwillymc.agrostest.core.model.Image
+import com.cesarwillymc.agrostest.data.repo.ImageRepo
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val imageRepo: ImageRepo) : ViewModel() {
 
     private val _stateURL = MutableLiveData<HomeViewModelState>(HomeViewModelState.URLSucces)
     val stateURL: LiveData<HomeViewModelState> get() = _stateURL
@@ -27,4 +29,12 @@ class HomeViewModel : ViewModel() {
     }
 
     lateinit var onClick: (String) -> Unit
+
+    //RV
+    val listImage= imageRepo.getImageDB()
+
+    fun inserImage(url:String){
+        imageRepo.insertImageDB(Image(url))
+    }
+
 }

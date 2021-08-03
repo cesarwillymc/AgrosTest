@@ -1,0 +1,10 @@
+package com.cesarwillymc.agrostest.data.repo
+
+import androidx.lifecycle.LiveData
+import com.cesarwillymc.agrostest.core.model.Image
+
+
+interface ImageRepo {
+    fun getImageDB(): LiveData<List<Image>>
+    fun insertImageDB(image: Image)
+}

@@ -1,5 +1,6 @@
 package com.cesarwillymc.agrostest.core.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -11,5 +12,5 @@ interface ImagesDao {
     fun insertImage(item: Image)
 
     @Query("SELECT * FROM imagedao limit 6")
-    fun getAllImages(): List<Image>
+    fun getAllImages(): LiveData<List<Image>>
 }

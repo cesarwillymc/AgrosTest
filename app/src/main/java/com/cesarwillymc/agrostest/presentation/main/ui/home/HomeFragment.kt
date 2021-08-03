@@ -38,6 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     private fun verifyUrl(image: String) {
         Glide.with(this)
             .load(image)
+
             .listener(object :  RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -55,10 +56,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
                     dataSource: DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
+                    viewModel.inserImage(image)
                     return false
                 }
 
-            }).placeholder(R.drawable.nofound)
+            }).placeholder(R.drawable.loading).error(R.drawable.nofound)
             .into(viewBinding.imgImg)
     }
 

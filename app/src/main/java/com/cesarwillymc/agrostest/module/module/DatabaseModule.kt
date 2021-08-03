@@ -22,5 +22,5 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun provideImagesDao(appdb: ImagesDB) =
-        appdb.moviesListData()
+        appdb.imageListData()
 }
