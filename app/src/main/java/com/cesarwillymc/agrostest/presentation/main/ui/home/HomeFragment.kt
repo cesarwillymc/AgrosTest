@@ -1,7 +1,6 @@
 package com.cesarwillymc.agrostest.presentation.main.ui.home
 
 
-import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
@@ -20,15 +19,6 @@ import com.cesarwillymc.agrostest.databinding.FragmentHomeBinding
 import com.cesarwillymc.agrostest.presentation.main.ui.home.adapter.ImageHomeAdapter
 import com.cesarwillymc.agrostest.presentation.main.ui.home.di.DaggerHomeComponent
 import com.cesarwillymc.agrostest.presentation.main.ui.home.di.HomeModule
-import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
-import com.google.android.flexbox.JustifyContent
-
-import com.google.android.flexbox.FlexDirection
-
-import com.google.android.flexbox.FlexboxLayoutManager
-
-import android.R.attr.name
-
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
     override fun onInitDependencyInjection() {
@@ -94,6 +84,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             layoutManager = manager
             adapter = imageAdapter
         }
+
         val itemTouchHelper = ItemTouchHelper(simpleCallbackTouch)
         itemTouchHelper.attachToRecyclerView(viewBinding.rvImages)
     }
