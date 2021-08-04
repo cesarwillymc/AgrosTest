@@ -10,6 +10,10 @@ class ImageRepoImpl(private val imageDao: ImagesDao) : ImageRepo {
         return imageDao.getAllImages()
     }
 
+    override  fun getImageDBLimit(): LiveData<List<Image>> {
+        return imageDao.getAllImagesLimit()
+    }
+
     override fun insertImageDB(image: Image) {
         imageDao.insertImage(image)
     }

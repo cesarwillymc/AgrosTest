@@ -34,7 +34,7 @@ class HomeViewModel(private val imageRepo: ImageRepo) : ViewModel() {
     lateinit var onClick: (String) -> Unit
 
     //RV
-    val listImage= imageRepo.getImageDB()
+    val listImage= imageRepo.getImageDBLimit()
 
     fun inserImage(url:String){
         imageRepo.insertImageDB(Image(url,Date().time))
