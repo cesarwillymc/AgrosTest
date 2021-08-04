@@ -9,3 +9,7 @@ pass: 123
   
 - El guardado de imagenes se realizo con Room
 - Se usaron Binding Extension
+
+# USO
+- Se esta usando JDK 11.
+- Se trabajo con Android Studio ArticFox
