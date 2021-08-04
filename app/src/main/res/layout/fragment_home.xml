@@ -27,7 +27,7 @@
             android:hint="@string/home_hint_edit"
             android:inputType="textPersonName"
             android:onTextChanged="@{(word,b,c,d)->viewModel.updateTextURL(word)}"
-            app:errorText="@{viewModel.stateURL.URLEmpty ?@string/home_string_empty_uurl:viewModel.stateURL.URLError?@string/home_string_error_url:@string/login_vacio}"
+            app:errorText="@{viewModel.stateURL.URLEmpty ?@string/login_vacio:viewModel.stateURL.URLError?@string/home_string_error_url:@string/login_vacio}"
             app:layout_constraintEnd_toStartOf="@+id/btn_load_img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -58,12 +58,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_images"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
+            android:gravity="center"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

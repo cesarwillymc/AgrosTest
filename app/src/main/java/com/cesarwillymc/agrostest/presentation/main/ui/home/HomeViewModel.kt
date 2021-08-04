@@ -9,12 +9,14 @@ import java.util.*
 
 class HomeViewModel(private val imageRepo: ImageRepo) : ViewModel() {
 
-    private val _stateURL = MutableLiveData<HomeViewModelState>(HomeViewModelState.URLSucces)
+    private val _stateURL = MutableLiveData<HomeViewModelState>()
     val stateURL: LiveData<HomeViewModelState> get() = _stateURL
 
 
     private lateinit var _dataURL: String
     val dataURL get() = _dataURL
+
+
 
     fun updateTextURL(URL: CharSequence) {
         if (URL.isNotEmpty()) {
@@ -32,7 +34,7 @@ class HomeViewModel(private val imageRepo: ImageRepo) : ViewModel() {
     lateinit var onClick: (String) -> Unit
 
     //RV
-    val listImage= imageRepo.getImageDB()
+    val listImage= imageRepo.getImageDBLimit()
 
     fun inserImage(url:String){
         imageRepo.insertImageDB(Image(url,Date().time))

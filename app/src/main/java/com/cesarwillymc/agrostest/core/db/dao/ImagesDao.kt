@@ -12,5 +12,8 @@ interface ImagesDao {
     fun deleteImage(image:String)
 
     @Query("SELECT * FROM imagedao ORDER  by date desc limit 6 ")
+    fun getAllImagesLimit(): LiveData<List<Image>>
+
+    @Query("SELECT * FROM imagedao ORDER  by date desc  ")
     fun getAllImages(): LiveData<List<Image>>
 }
